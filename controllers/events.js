@@ -11,8 +11,8 @@ export async function getEvents(req, res) {
 // we want a function that will create a new events
 export async function createEvents(req, res) {
     const data = req.body;
-    const newEvents = await events.createEvents(data);
-    res.json({ success: true, payload: newEvents });
+    const newEvent = await events.createEvents(data);
+    res.json({ success: true, payload: newEvent });
 }
 
 // we want a function that will delete a events

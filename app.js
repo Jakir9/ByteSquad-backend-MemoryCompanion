@@ -22,9 +22,9 @@ console.log(PORT);
 app.use(express.json());
 
 // User request comes in with the following URI and then is routed to the correct route file (based off this original info), where the additional route paths are reviewed
-app.use("/", (req, res) => {
-  res.send("Hello World!");
-});
+// app.use("/", (req, res) => {
+//   res.send("Hello World!");
+// });
 
 // app.use("/timecapsule", timeCapsuleRoutes);
 // app.use("/friendsandfamily", friendsAndFamilyRoutes);
