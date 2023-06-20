@@ -16,7 +16,7 @@ export async function createEvents(req, res) {
 }
 
 // we want a function that will delete a events
-// export async function deleteEventsById(req, res) {
-//     const events = await events.deleteEventsById(req.params.id);
-//     res.json({ success: true, payload: events });
-// }
+export async function deleteEventsById(req, res) {
+    const deletedEvents = await events.deleteEventsById(req.params.id);
+    res.json({ success: true, payload: deletedEvents });
+}

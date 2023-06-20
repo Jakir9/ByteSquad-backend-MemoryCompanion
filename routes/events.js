@@ -5,4 +5,4 @@ export const eventsRoutes = express.Router();
 
 eventsRoutes.get("/", eventsControllers.getEvents);
 eventsRoutes.post("/", eventsControllers.createEvents);
-// eventsRoutes.delete("/", eventsControllers.deleteEvents);
+eventsRoutes.delete("/:id", eventsControllers.deleteEventsById);
