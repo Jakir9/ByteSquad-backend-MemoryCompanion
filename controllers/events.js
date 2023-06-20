@@ -1,4 +1,5 @@
-// import * as events from '../models/events';
+import * as events from '../models/events.js';
+
 
 // we want to write a function that will get all the events from the database
 // and then send them back to the client
@@ -15,7 +16,7 @@ export async function createEvents(req, res) {
 }
 
 // we want a function that will delete a events
-export async function deleteEventsById(req, res) {
-    const events = await events.deleteEventsById(req.params.id);
-    res.json({ success: true, payload: events });
-}
+// export async function deleteEventsById(req, res) {
+//     const events = await events.deleteEventsById(req.params.id);
+//     res.json({ success: true, payload: events });
+// }

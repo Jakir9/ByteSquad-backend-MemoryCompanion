@@ -5,7 +5,7 @@ import dotenv  from "dotenv";
 // import { timeCapsuleRoutes } from "./routes/timeCapsuleRoutes.js";
 // import { friendsAndFamilyRoutes } from "./routes/friendsAndFamilyRoutes.js";
 // import { medicationRoutes } from "./routes/medicationRoutes.js";
-// import { eventsRoutes } from "./routes/eventsRoutes.js";
+import { eventsRoutes } from "./routes/events.js";
 
 // This is uber important, nary forget! 
 dotenv.config()
@@ -29,7 +29,7 @@ app.use("/", (req, res) => {
 // app.use("/timecapsule", timeCapsuleRoutes);
 // app.use("/friendsandfamily", friendsAndFamilyRoutes);
 // app.use("/medication", medicationRoutes);
-// app.use("/events", eventsRoutes);
+app.use("/api/events", eventsRoutes);
 
 app.listen(PORT, function () {
   console.log(`Server listening on port http://localhost:${PORT}`);

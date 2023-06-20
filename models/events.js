@@ -15,6 +15,10 @@ export async function getEvent(userId) {
 
 getEvent(1);
 
+export async function createEvent(event) {
+  // Query the database to create a new event and return the newly created event 
+  const events = await pool.query('INSERT INTO events (user_id, event_name, event_date, event_time) VALUES ($1, $2, $3, $4) RETURNING *', [event.user_id, event.event_name, event.event_date, event.event_time]);
+}
 // export async function searchAuthorsByName(searchTerm) {
 //   // Query the database and return all authors that have a name matching the searchTerm
 //   const authors = await pool.query('select * from authors where last_name LIKE $1 OR first_name LIKE $1', [`%${searchTerm}%`]);  

@@ -1,5 +1,8 @@
 import express from "express";
+import * as eventsControllers  from "../controllers/events.js";
+export const eventsRoutes = express.Router();
 
-eventsRoutes.get("/", eventsController.getEvents);
-eventsRoutes.post("/", eventsController.createEvents);
-eventsRoutes.delete("/", eventsController.deleteEvents);
+
+eventsRoutes.get("/", eventsControllers.getEvents);
+eventsRoutes.post("/", eventsControllers.createEvents);
+// eventsRoutes.delete("/", eventsControllers.deleteEvents);
