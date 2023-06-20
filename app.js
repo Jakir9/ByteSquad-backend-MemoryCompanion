@@ -1,10 +1,14 @@
 import express from "express";
+import dotenv  from "dotenv";
 
 // Import predefined routes (HTTP Requests)
 // import { timeCapsuleRoutes } from "./routes/timeCapsuleRoutes.js";
 // import { friendsAndFamilyRoutes } from "./routes/friendsAndFamilyRoutes.js";
 // import { medicationRoutes } from "./routes/medicationRoutes.js";
 // import { eventsRoutes } from "./routes/eventsRoutes.js";
+
+// This is uber important, nary forget! 
+dotenv.config()
 
 const app = express();
 const PORT = process.env.PORT;
