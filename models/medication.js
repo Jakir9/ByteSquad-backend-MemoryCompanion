@@ -1,44 +1,45 @@
 import { pool } from "../db/db.js";
 
-
-
 // query data base to get/create and delete medication
-
+// We need to decide if we are going to hardcore user ID rather than passing it in as a parameter
 export async function getMedication(userId) {
-    // Query the database and return all medication
-    // join medication and medicationInfo table to get all medication info
-    const user_Id = userId;
-    const medications = await pool.query("SELECT medication_name, scheduled_dosage, time_dosage FROM medicationInfo LEFT JOIN medication ON medicationInfo.medication_id = medication.medication_id WHERE user_id = 1", [ user_Id ], );
-    console.log("this is the get medication function", medications.rows);
-
-
-    return medications.rows;
+  // Query the database and return all medication
+  // join medication and medicationInfo table to get all medication info
+  //   const user_Id = userId;
+  const medications = await pool.query(
+    "SELECT medication_name, scheduled_dosage, time_dosage FROM medicationInfo LEFT JOIN medication ON medicationInfo.medication_id = medication.medication_id WHERE user_id = 1"
+  );
+  console.log("this is the get medication function", medications.rows);
+  return medications.rows;
 }
-getMedication(1)
+getMedication(1);
 
+// // When creating a new medication, we need to create a new medication and medicationInfo
+// // Firstly, we want to create a new medicationID for the user
+// // Then we want to create a new medicationInfo for medicationID that was just created
+// // We want to return the newly created medicationInfo for that user (JOIN tables again)
+export async function createMedication(medication) {
+  const medicationName = medication.medication_name;
+  const medicationDosage = medication.scheduled_dosage;
+  const medicationTime = medication.time_dosage;
+  const query1 = `INSERT INTO medication (user_id) VALUES ($1) RETURNING medication_id`;
+  const data = await pool.query(query1, [1]);
+  const medicationId = data.rows[0].medication_id;
+  console.log(medicationId);
+  const query2 =
+    "INSERT INTO medicationinfo (medication_id, medication_name, scheduled_dosage, time_dosage) VALUES ($1, $2, $3, $4) RETURNING *";
+  const data2 = await pool.query(query2, [
+    medicationId,
+    medicationName,
+    medicationDosage,
+    medicationTime,
+  ]);
 
-// export async function getEvent(userId) {
-//   // Query the database and return all authors
-//   const user_Id = userId;
-//   // Parameterized query to prevent SQL injection
-//   // This is why we pass the userId as a parameter to the query
-//   // and not just concatenate ($'') it into the query string
-//   // hence the userId as the second parameter to the query function outside query string
-//   // if we were to concatenate the userId in the query, the value would be interpreted as a string and printed which is not what we want as it is sensitive information
-//   const events = await pool.query("SELECT * FROM events WHERE user_id = $1", [
-//     user_Id,
-//   ]);
-//   console.log(events.rows);
-//   return events.rows;
-// }
-
-// getEvent(1);
-
-// export async function createEvents(event) {
-//   // Query the database to create a new event and return the newly created event
-//   const events = await pool.query(
-//     "INSERT INTO events (user_id, event_name, event_date, event_time) VALUES ($1, $2, $3, $4) RETURNING *",
-//     [event.user_id, event.event_name, event.event_date, event.event_time]
-//   );
-//   return events.rows;
-// }
+  console.log(`this is the createMedication function result`, data2.rows);
+  return data2.rows;
+}
+createMedication({
+  medication_name: "test",
+  scheduled_dosage: "test",
+  time_dosage: "08:00",
+});
