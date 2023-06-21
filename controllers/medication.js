@@ -1,9 +1,9 @@
-// import * as medication from '../models/medication';
+import * as medication from '../models/medication.js';
 
 // we want to create a function that will get all the medications from the database
 // and then send them back to the client
-export async function getMedications(req, res) {
-    const medications = await medication.getMedications();
+export async function getMedication(req, res) {
+    const medications = await medication.getMedication();
     res.json({ success: true, payload: medications });
 }
 

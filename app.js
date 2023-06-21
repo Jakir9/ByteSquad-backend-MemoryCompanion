@@ -4,7 +4,7 @@ import dotenv  from "dotenv";
 // Import predefined routes (HTTP Requests)
 // import { timeCapsuleRoutes } from "./routes/timeCapsuleRoutes.js";
 // import { friendsAndFamilyRoutes } from "./routes/friendsAndFamilyRoutes.js";
-// import { medicationRoutes } from "./routes/medicationRoutes.js";
+import { medicationRoutes } from "./routes/medication.js";
 import { eventsRoutes } from "./routes/events.js";
 
 // This is uber important, nary forget! 
@@ -28,7 +28,7 @@ app.use(express.json());
 
 // app.use("/timecapsule", timeCapsuleRoutes);
 // app.use("/friendsandfamily", friendsAndFamilyRoutes);
-// app.use("/medication", medicationRoutes);
+app.use("/api/medication", medicationRoutes);
 app.use("/api/events", eventsRoutes);
 
 app.listen(PORT, function () {
