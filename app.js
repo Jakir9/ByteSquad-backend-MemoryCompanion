@@ -3,7 +3,7 @@ import dotenv  from "dotenv";
 
 // Import predefined routes (HTTP Requests)
 // import { timeCapsuleRoutes } from "./routes/timeCapsuleRoutes.js";
-// import { friendsAndFamilyRoutes } from "./routes/friendsAndFamilyRoutes.js";
+import { friendsAndFamilyRoutes } from "./routes/friendsAndFamily.js";
 import { medicationRoutes } from "./routes/medication.js";
 import { eventsRoutes } from "./routes/events.js";
 
@@ -27,7 +27,7 @@ app.use(express.json());
 // });
 
 // app.use("/timecapsule", timeCapsuleRoutes);
-// app.use("/friendsandfamily", friendsAndFamilyRoutes);
+app.use("/api/friendsandfamily", friendsAndFamilyRoutes);
 app.use("/api/medication", medicationRoutes);
 app.use("/api/events", eventsRoutes);
 

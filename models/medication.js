@@ -55,5 +55,5 @@ export async function deleteMedicationById(medicationId) {
     // console.log("this is the deleteMedicationById function", data.rows[0]);
     // return data.rows;
     }
-deleteMedicationById(42);
+// deleteMedicationById();
 
