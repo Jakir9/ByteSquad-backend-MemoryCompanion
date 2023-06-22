@@ -2,15 +2,13 @@ import { pool } from "../db/db.js";
 
 export async function getEvent(userId) {
   // Query the database and return all authors
-  const user_Id = userId;
+  // const user_Id = userId;
   // Parameterized query to prevent SQL injection
   // This is why we pass the userId as a parameter to the query
   // and not just concatenate ($'') it into the query string
   // hence the userId as the second parameter to the query function outside query string
   // if we were to concatenate the userId in the query, the value would be interpreted as a string and printed which is not what we want as it is sensitive information
-  const events = await pool.query("SELECT * FROM events WHERE user_id = $1", [
-    user_Id,
-  ]);
+  const events = await pool.query("SELECT * FROM events WHERE user_id = 1");
   console.log(events.rows);
   return events.rows;
 }

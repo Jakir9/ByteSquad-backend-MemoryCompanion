@@ -1,4 +1,4 @@
-// import * as friendsandfamily from '../models/friendsandfamily';
+import * as friendsAndFamily from '../models/friendsandfamily';
 
 // we want to write a function that will get all the friendsAndFamily from the database
 // and then send them back to the client

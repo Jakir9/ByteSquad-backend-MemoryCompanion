@@ -38,8 +38,10 @@ export async function createMedication(medication) {
   console.log(`this is the createMedication function result`, data2.rows);
   return data2.rows;
 }
-createMedication({
-  medication_name: "test",
-  scheduled_dosage: "test",
-  time_dosage: "08:00",
-});
+// createMedication({
+//   medication_name: "test",
+//   scheduled_dosage: "test",
+//   time_dosage: "08:00",
+// });
+
+// We want the user to be able to delete a medication by its id
