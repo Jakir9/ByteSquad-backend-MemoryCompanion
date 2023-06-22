@@ -17,6 +17,6 @@ export async function createFriendsAndFamily(req, res) {
 
 // we want a function that will delete a friendsAndFamily
 export async function deleteFriendsAndFamilyById(req, res) {
-    const friendsAndFamily = await friendsAndFamily.deleteFriendsAndFamilyById(req.params.id);
-    res.json({ success: true, payload: friendsAndFamily });
+    const deletedFriendsAndFamily = await friendsAndFamily.deleteFriendsAndFamilyById(req.params.id);
+    res.json({ success: true, payload: deletedFriendsAndFamily });
 }

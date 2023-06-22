@@ -15,20 +15,30 @@ export async function getTimeCapsule(userId) {
 
 getTimeCapsule(1)
 
-export async function createTimeCapsule(timeCapsule) {
+export async function createTimeCapsule(timecapsule) {
   // Query the database to create a new event and return the newly created event
   const query = await pool.query(
     'INSERT INTO timecapsule (user_id, image) VALUES ($1, $2) RETURNING *',
-    [timeCapsule.user_id, timeCapsule.image]
+    [timecapsule.user_id, timecapsule.image]
   )
   return query.rows
 }
 
-createTimeCapsule({
-  user_id: 3,
-  image:
-    'https://cdnb.artstation.com/p/assets/images/images/058/552/303/large/neonz_art-asset.jpg?1674442260',
-})
+// createTimeCapsule({
+//   user_id: 2,
+//   image:
+//     'https://cdnb.artstation.com/p/assets/images/images/058/552/303/large/neonz_art-asset.jpg?1674442260',
+// })
+
+
+export async function deleteTimeCapsuleById(timecapsuleId) {
+  // Query the database to delete an event by its id and return the deleted event
+  const query = await pool.query("DELETE FROM timecapsule WHERE timecapsule_id = $1 RETURNING *", [timecapsuleId])
+  return query.rows[0]
+}
+
+deleteTimeCapsuleById(10)
+
 
 //   console.log(`this is the createMedication function result`, data2.rows)
 //   return data2.rows

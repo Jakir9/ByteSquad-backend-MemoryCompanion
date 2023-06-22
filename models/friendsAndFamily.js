@@ -56,4 +56,4 @@ export async function deleteFriendsAndFamilyById(fnf_id) {
   return data.rows[0]
 }
 
-deleteFriendsAndFamilyById(1)
+// deleteFriendsAndFamilyById(2)
