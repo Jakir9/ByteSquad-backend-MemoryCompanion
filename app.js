@@ -1,37 +1,36 @@
-import express from "express";
-import dotenv  from "dotenv";
+import express from 'express'
+import dotenv from 'dotenv'
 
 // Import predefined routes (HTTP Requests)
-// import { timeCapsuleRoutes } from "./routes/timeCapsuleRoutes.js";
-import { friendsAndFamilyRoutes } from "./routes/friendsAndFamily.js";
-import { medicationRoutes } from "./routes/medication.js";
-import { eventsRoutes } from "./routes/events.js";
+import { timeCapsuleRoutes } from './routes/timeCapsule.js'
+import { friendsAndFamilyRoutes } from './routes/friendsAndFamily.js'
+import { medicationRoutes } from './routes/medication.js'
+import { eventsRoutes } from './routes/events.js'
 
-// This is uber important, nary forget! 
+// This is uber important, nary forget!
 dotenv.config()
 
-const app = express();
-const PORT = process.env.PORT;
+const app = express()
+const PORT = process.env.PORT
 
-console.log(PORT);
+console.log(PORT)
 
 // Need to hook up the backend and frontend to the same port
 // * INSERT HERE *
 
 // Automatic parsing of objects/data
-app.use(express.json());
+app.use(express.json())
 
 // User request comes in with the following URI and then is routed to the correct route file (based off this original info), where the additional route paths are reviewed
 // app.use("/", (req, res) => {
 //   res.send("Hello World!");
 // });
 
-// app.use("/timecapsule", timeCapsuleRoutes);
-app.use("/api/friendsandfamily", friendsAndFamilyRoutes);
-app.use("/api/medication", medicationRoutes);
-app.use("/api/events", eventsRoutes);
+app.use('/api/timecapsule', timeCapsuleRoutes)
+app.use('/api/friendsandfamily', friendsAndFamilyRoutes)
+app.use('/api/medication', medicationRoutes)
+app.use('/api/events', eventsRoutes)
 
 app.listen(PORT, function () {
-  console.log(`Server listening on port http://localhost:${PORT}`);
-
-});
+  console.log(`Server listening on port http://localhost:${PORT}`)
+})
