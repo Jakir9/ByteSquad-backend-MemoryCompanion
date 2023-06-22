@@ -44,4 +44,16 @@ export async function createMedication(medication) {
 //   time_dosage: "08:00",
 // });
 
-// We want the user to be able to delete a medication by its id
+// We want the user to be able to delete a medication by its medication_id
+// we want to delete the medication id from medication info table and then that medication id from medication table
+// We want to return the deleted medication
+export async function deleteMedicationById(medicationId) {
+    const query = "DELETE FROM medicationinfo WHERE medication_id = $1";
+    const query2 = "DELETE FROM medication WHERE medication_id = $1 RETURNING *";
+    const data = await pool.query(query, [medicationId]);
+    const data2 = await pool.query(query2, [medicationId]);
+    // console.log("this is the deleteMedicationById function", data.rows[0]);
+    // return data.rows;
+    }
+deleteMedicationById(42);
+
