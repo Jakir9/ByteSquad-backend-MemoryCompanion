@@ -1,16 +1,27 @@
-import express from "express";
-import dotenv  from "dotenv";
+// import dotenv  from "dotenv";
 
 // Import predefined routes (HTTP Requests)
 // import { timeCapsuleRoutes } from "./routes/timeCapsuleRoutes.js";
 // import { friendsAndFamilyRoutes } from "./routes/friendsAndFamilyRoutes.js";
-import { medicationRoutes } from "./routes/medication.js";
-import { eventsRoutes } from "./routes/events.js";
+// import { medicationRoutes } from "./routes/medication.js";
+// import { eventsRoutes } from "./routes/events.js";
+
+// repair imports
+
+// For file upload - Darren
+const express = require("express");
+const app = express();
+const uploadRouter = require("./routes/upload");
+var cors = require("cors");
+
+app.use(cors());
+app.use("/upload", uploadRouter);
+app.use("/uploads", express.static("uploads"));
 
 // This is uber important, nary forget! 
-dotenv.config()
+// dotenv.config()
 
-const app = express();
+
 const PORT = process.env.PORT;
 
 console.log(PORT);
@@ -28,10 +39,12 @@ app.use(express.json());
 
 // app.use("/timecapsule", timeCapsuleRoutes);
 // app.use("/friendsandfamily", friendsAndFamilyRoutes);
-app.use("/api/medication", medicationRoutes);
-app.use("/api/events", eventsRoutes);
+// app.use("/api/medication", medicationRoutes);
+// app.use("/api/events", eventsRoutes);
 
-app.listen(PORT, function () {
+app.listen(PORT, () => {
   console.log(`Server listening on port http://localhost:${PORT}`);
 
 });
+
+module.exports = app;
