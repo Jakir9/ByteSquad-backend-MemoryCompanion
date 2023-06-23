@@ -1,4 +1,4 @@
-// import dotenv  from "dotenv";
+import dotenv  from "dotenv";
 
 // Import predefined routes (HTTP Requests)
 // import { timeCapsuleRoutes } from "./routes/timeCapsuleRoutes.js";
@@ -6,21 +6,21 @@
 // import { medicationRoutes } from "./routes/medication.js";
 // import { eventsRoutes } from "./routes/events.js";
 
-// repair imports
+// repair imports  - Commented out just to stop errors
 
 // For file upload - Darren
-const express = require("express");
-const app = express();
-const uploadRouter = require("./routes/upload");
-var cors = require("cors");
+import express from "express";
+import uploadRouter from "./routes/upload.js";
+import cors from "cors";
+
+const app = express()
 
 app.use(cors());
 app.use("/upload", uploadRouter);
 app.use("/uploads", express.static("uploads"));
 
 // This is uber important, nary forget! 
-// dotenv.config()
-
+dotenv.config()
 
 const PORT = process.env.PORT;
 
@@ -47,4 +47,4 @@ app.listen(PORT, () => {
 
 });
 
-module.exports = app;
+export default app;

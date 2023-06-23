@@ -1,9 +1,10 @@
-var express = require("express");
-var router = express.Router();
-const multer = require("multer");
+import express from "express";
+import multer from "multer";
+import fs from "fs";
+import path from "path";
 
-const fs = require("fs");
-const path = require("path");
+var router = express.Router();
+
 const PORT = process.env.PORT;
 
 if (!fs.existsSync("uploads/")) {
@@ -51,4 +52,4 @@ router.post("/", upload.single("file"), (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

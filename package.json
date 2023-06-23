@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "dev": "nodemon -r dotenv/config app.js",
-    "testsql": "node ./models/events.js",
-    "upload": "nodemon -r dotenv/config ./bin/www"
+    "testsql": "node ./models/events.js"
   },
   "keywords": [],
   "author": "",
