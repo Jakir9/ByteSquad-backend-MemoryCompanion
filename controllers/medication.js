@@ -16,6 +16,6 @@ export async function createMedication(req, res) {
 
 // we want a function that will delete a medication
 export async function deleteMedicationById(req, res) {
-    const medication = await medication.deleteMedicationById(req.params.id);
-    res.json({ success: true, payload: medication });
+    const deletedMedication = await medication.deleteMedicationById(req.params.id);
+    res.json({ success: true, payload: deletedMedication});
 }
