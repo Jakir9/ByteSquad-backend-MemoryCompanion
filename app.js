@@ -13,6 +13,13 @@ dotenv.config()
 const app = express()
 const PORT = process.env.PORT
 
+var AuthenticationClient = require('auth0').AuthenticationClient
+
+var auth0 = new AuthenticationClient({
+  domain: '{YOUR_ACCOUNT}.auth0.com',
+  clientId: '{OPTIONAL_CLIENT_ID}',
+})
+
 console.log(PORT)
 
 // Need to hook up the backend and frontend to the same port
@@ -30,6 +37,18 @@ app.use('/api/timecapsule', timeCapsuleRoutes)
 app.use('/api/friendsandfamily', friendsAndFamilyRoutes)
 app.use('/api/medication', medicationRoutes)
 app.use('/api/events', eventsRoutes)
+
+// POST endpoint to handle the request from Auth0
+app.post('/api', (req, res) => {
+  // Extract the user_id from the request body
+  const { user_id } = req.body
+
+  // Do something with the user_id
+  console.log(user_id)
+
+  // Send a response back to Auth0 if needed
+  res.send('Received user_id successfully')
+})
 
 app.listen(PORT, function () {
   console.log(`Server listening on port http://localhost:${PORT}`)
