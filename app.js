@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import cors from 'cors'
 
 // Import predefined routes (HTTP Requests)
 import { timeCapsuleRoutes } from './routes/timeCapsule.js'
@@ -26,7 +27,9 @@ console.log(PORT)
 // * INSERT HERE *
 
 // Automatic parsing of objects/data
+
 app.use(express.json())
+app.use(cors())
 
 // User request comes in with the following URI and then is routed to the correct route file (based off this original info), where the additional route paths are reviewed
 // app.use("/", (req, res) => {
@@ -53,3 +56,4 @@ app.post('/api', (req, res) => {
 app.listen(PORT, function () {
   console.log(`Server listening on port http://localhost:${PORT}`)
 })
+ export default app

@@ -12,7 +12,7 @@ export async function getMedication(userId) {
   console.log("this is the get medication function", medications.rows);
   return medications.rows;
 }
-getMedication(1);
+// getMedication(1);
 
 // // When creating a new medication, we need to create a new medication and medicationInfo
 // // Firstly, we want to create a new medicationID for the user

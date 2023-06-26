@@ -13,7 +13,7 @@ export async function getTimeCapsule(userId) {
   return query.rows
 }
 
-getTimeCapsule(1)
+// getTimeCapsule(1)
 
 export async function createTimeCapsule(timecapsule) {
   // Query the database to create a new event and return the newly created event
@@ -37,7 +37,7 @@ export async function deleteTimeCapsuleById(timecapsuleId) {
   return query.rows[0]
 }
 
-deleteTimeCapsuleById(10)
+// deleteTimeCapsuleById(10)
 
 
 //   console.log(`this is the createMedication function result`, data2.rows)
