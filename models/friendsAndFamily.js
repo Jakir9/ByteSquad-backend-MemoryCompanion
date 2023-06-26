@@ -11,7 +11,7 @@ export async function getFriendsAndFamily(userId) {
   )
   return friendsAndFamily.rows
 }
-getFriendsAndFamily(1)
+// getFriendsAndFamily(1)
 
 // write a function that will create a new friendsandfamily and insert new id into friendsandfamily table and  then further information into friendsandfamilyinfo table
 

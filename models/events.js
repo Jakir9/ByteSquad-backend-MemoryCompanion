@@ -13,7 +13,7 @@ export async function getEvent(userId) {
   return events.rows;
 }
 
-getEvent(1);
+// getEvent(1);
 
 export async function createEvents(event) {
   // Query the database to create a new event and return the newly created event

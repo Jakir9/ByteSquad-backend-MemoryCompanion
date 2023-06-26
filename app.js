@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import cors from 'cors'
 
 // Import predefined routes (HTTP Requests)
 import { timeCapsuleRoutes } from './routes/timeCapsule.js'
@@ -19,7 +20,9 @@ console.log(PORT)
 // * INSERT HERE *
 
 // Automatic parsing of objects/data
+
 app.use(express.json())
+app.use(cors())
 
 // User request comes in with the following URI and then is routed to the correct route file (based off this original info), where the additional route paths are reviewed
 // app.use("/", (req, res) => {
@@ -31,6 +34,19 @@ app.use('/api/friendsandfamily', friendsAndFamilyRoutes)
 app.use('/api/medication', medicationRoutes)
 app.use('/api/events', eventsRoutes)
 
+// POST endpoint to handle the request from Auth0
+app.post('/api', (req, res) => {
+  // Extract the user_id from the request body
+  const { user_id } = req.body
+
+  // Do something with the user_id
+  console.log(user_id)
+
+  // Send a response back to Auth0 if needed
+  res.send('Received user_id successfully')
+})
+
 app.listen(PORT, function () {
   console.log(`Server listening on port http://localhost:${PORT}`)
 })
+ export default app
