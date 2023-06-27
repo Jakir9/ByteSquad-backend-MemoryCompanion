@@ -3,13 +3,13 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 
 // Import predefined routes (HTTP Requests)
-import { timeCapsuleRoutes } from './routes/timeCapsule.js'
-import { friendsAndFamilyRoutes } from './routes/friendsAndFamily.js'
-import { medicationRoutes } from './routes/medication.js'
-import { eventsRoutes } from './routes/events.js'
+import { timeCapsuleRoutes } from "./routes/timeCapsule.js";
+import { friendsAndFamilyRoutes } from "./routes/friendsAndFamily.js";
+import { medicationRoutes } from "./routes/medication.js";
+import { eventsRoutes } from "./routes/events.js";
 
 // This is uber important, nary forget!
-dotenv.config()
+dotenv.config();
 
 const app = express()
 const PORT = process.env.PORT
@@ -21,7 +21,7 @@ var auth0 = new AuthenticationClient({
   clientId: '{OPTIONAL_CLIENT_ID}',
 })
 
-console.log(PORT)
+console.log(PORT);
 
 // Need to hook up the backend and frontend to the same port
 // * INSERT HERE *

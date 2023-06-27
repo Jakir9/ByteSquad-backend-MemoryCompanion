@@ -24,21 +24,13 @@ export async function createEvents(event) {
   return events.rows;
 }
 
-
-
 // we want to create a function that will delete an event by its id
 export async function deleteEventsById(eventsId) {
   // Query the database to delete an event and return the deleted event
-  const events = await pool.query("DELETE FROM events WHERE event_id = $1 RETURNING *", [eventsId]);
+  const events = await pool.query(
+    "DELETE FROM events WHERE event_id = $1 RETURNING *",
+    [eventsId]
+  );
   console.log(events.rows[0]);
   return events.rows[0];
 }
-
-
-
-
-
-
-
-
-
