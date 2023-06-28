@@ -3,8 +3,8 @@ import * as friendsAndFamily from '../models/friendsAndFamily.js';
 // we want to write a function that will get all the friendsAndFamily from the database
 // and then send them back to the client
 export async function getFriendsAndFamily(req, res) {
-    const friendsAndFamily = await friendsAndFamily.getFriendsAndFamily();
-    res.json({ success: true, payload: friendsAndFamily });
+    const friendsAndFamilies = await friendsAndFamily.getFriendsAndFamily();
+    res.json({ success: true, payload: friendsAndFamilies });
 }
 
 // we want a function that will create a new friendsAndFamily
