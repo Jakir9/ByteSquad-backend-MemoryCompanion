@@ -2,6 +2,10 @@ import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 
+
+// local storage upload 
+import uploadRouter from './routes/upload.js'
+
 // Import predefined routes (HTTP Requests)
 import { timeCapsuleRoutes } from "./routes/timeCapsule.js";
 import { friendsAndFamilyRoutes } from "./routes/friendsAndFamily.js";
@@ -14,12 +18,12 @@ dotenv.config();
 const app = express()
 const PORT = process.env.PORT
 
-var AuthenticationClient = require('auth0').AuthenticationClient
+// var AuthenticationClient = require('auth0').AuthenticationClient
 
-var auth0 = new AuthenticationClient({
-  domain: '{YOUR_ACCOUNT}.auth0.com',
-  clientId: '{OPTIONAL_CLIENT_ID}',
-})
+// var auth0 = new AuthenticationClient({
+//   domain: '{YOUR_ACCOUNT}.auth0.com',
+//   clientId: '{OPTIONAL_CLIENT_ID}',
+// })
 
 console.log(PORT);
 
@@ -30,6 +34,10 @@ console.log(PORT);
 
 app.use(express.json())
 app.use(cors())
+
+// local storage command
+app.use("/upload", uploadRouter)
+app.use("/uploads", express.static("uploads"))
 
 // User request comes in with the following URI and then is routed to the correct route file (based off this original info), where the additional route paths are reviewed
 // app.use("/", (req, res) => {

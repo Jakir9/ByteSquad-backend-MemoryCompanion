@@ -9,7 +9,7 @@ export async function getMedication(userId) {
   const medications = await pool.query(
     "SELECT medication_name, scheduled_dosage, time_dosage FROM medicationInfo LEFT JOIN medication ON medicationInfo.medication_id = medication.medication_id WHERE user_id = 1"
   );
-  console.log("this is the get medication function", medications.rows);
+  // console.log("this is the get medication function", medications.rows);
   return medications.rows;
 }
 // getMedication(1);
