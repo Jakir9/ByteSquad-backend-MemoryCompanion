@@ -15,7 +15,7 @@ import { eventsRoutes } from "./routes/events.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.LIVE_PORT;
+const PORT = process.env.PORT;
 
 // var AuthenticationClient = require('auth0').AuthenticationClient
 
