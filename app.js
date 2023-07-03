@@ -39,6 +39,17 @@ const allowedOrigins = [
   "https://byte-squad-frontend-memory-companion.vercel.app",
 ];
 
+app.use(
+  cors({
+    origin: [
+      "https://byte-squad-frontend-memory-companion.vercel.app/",
+      "https://byte-squad-frontend-memory-companion.vercel.app/friendsandfamily",
+      "https://byte-squad-frontend-memory-companion.vercel.app",
+      "http://localhost:3000",
+    ],
+  })
+);
+
 // CORS middleware
 // app.use(
 //   cors({
