@@ -15,7 +15,8 @@ import { eventsRoutes } from "./routes/events.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT
+const LIVEPORT = process.env.LIVE_PORT
 
 // var AuthenticationClient = require('auth0').AuthenticationClient
 
@@ -97,7 +98,7 @@ app.post("/api", (req, res) => {
   res.send("Received user_id successfully");
 });
 
-app.listen(PORT, function () {
+app.listen(PORT, LIVEPORT, function () {
   console.log(`Server listening on port http://localhost:${PORT}`);
 });
 export default app;
