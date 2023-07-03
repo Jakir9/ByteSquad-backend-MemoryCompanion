@@ -15,8 +15,8 @@ import { eventsRoutes } from "./routes/events.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT
-const LIVEPORT = process.env.LIVE_PORT
+const PORT = process.env.PORT;
+// const LIVEPORT = process.env.LIVE_PORT
 
 // var AuthenticationClient = require('auth0').AuthenticationClient
 
@@ -36,20 +36,20 @@ app.use(express.json());
 app.use(cors());
 // ABOVE IS FROM BEFORE
 // Allow requests from your Vercel frontend domain
-const allowedOrigins = [
-  "https://byte-squad-frontend-memory-companion.vercel.app",
-];
+// const allowedOrigins = [
+//   "https://byte-squad-frontend-memory-companion.vercel.app",
+// ];
 
-app.use(
-  cors({
-    origin: [
-      "https://byte-squad-frontend-memory-companion.vercel.app/",
-      "https://byte-squad-frontend-memory-companion.vercel.app/friendsandfamily",
-      "https://byte-squad-frontend-memory-companion.vercel.app",
-      "http://localhost:3000",
-    ],
-  })
-);
+// app.use(
+//   cors({
+//     origin: [
+//       "https://byte-squad-frontend-memory-companion.vercel.app/",
+//       "https://byte-squad-frontend-memory-companion.vercel.app/friendsandfamily",
+//       "https://byte-squad-frontend-memory-companion.vercel.app",
+//       "http://localhost:3000",
+//     ],
+//   })
+// );
 
 // CORS middleware
 // app.use(
@@ -98,7 +98,7 @@ app.post("/api", (req, res) => {
   res.send("Received user_id successfully");
 });
 
-app.listen(PORT, LIVEPORT, function () {
+app.listen(PORT, function () {
   console.log(`Server listening on port http://localhost:${PORT}`);
 });
 export default app;
