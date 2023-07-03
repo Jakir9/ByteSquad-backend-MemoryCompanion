@@ -1,5 +1,5 @@
 import express from "express";
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 import cors from "cors";
 
 // local storage upload
@@ -12,7 +12,7 @@ import { medicationRoutes } from "./routes/medication.js";
 import { eventsRoutes } from "./routes/events.js";
 
 // This is uber important, nary forget!
-dotenv.config();
+// dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT;

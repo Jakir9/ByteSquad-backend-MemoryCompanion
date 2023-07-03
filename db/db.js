@@ -1,8 +1,8 @@
 import pg from "pg"; 
-import dotenv  from "dotenv"
+// import dotenv  from "dotenv"
 
 // This is uber important, nary forget! 
-dotenv.config()
+// dotenv.config()
 
 const connectionString = process.env.DB_CONNECTION_STRING;
 
