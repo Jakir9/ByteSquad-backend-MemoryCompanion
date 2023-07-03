@@ -32,7 +32,7 @@ console.log(PORT);
 // Automatic parsing of objects/data
 
 app.use(express.json());
-// app.use(cors())
+app.use(cors());
 // ABOVE IS FROM BEFORE
 // Allow requests from your Vercel frontend domain
 const allowedOrigins = [
@@ -40,17 +40,17 @@ const allowedOrigins = [
 ];
 
 // CORS middleware
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-  })
-);
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       if (!origin || allowedOrigins.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//   })
+// );
 
 // // ... Your other routes and middleware
 
