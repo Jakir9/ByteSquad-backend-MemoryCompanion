@@ -81,7 +81,7 @@ Throughout the development of the Memory Companion app, we followed a collaborat
 
 ## Tech Stack
 
-![Team Tech Stack](team-tech-stack.PNG)
+![Team Tech Stack](team-tech-stack.png)
 
 ## Team Members
 
